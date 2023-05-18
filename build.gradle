@@ -1,0 +1,59 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group 'org.talcowarpro.talcowarpro'
+version '0.1-SNAPSHOT'
+sourceCompatibility = '17'
+mainClassName = 'java.org.TalCoWarPro.TalCoWarPro'
+
+
+
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    duplicatesStrategy(DuplicatesStrategy.INCLUDE)
+    manifest {
+        attributes(
+                'Main-Class': 'org.TalCoWarPro.TalCoWarPro'
+        )
+    }
+    archiveClassifier = "all"
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+dependencies {
+    // Default
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // JDBC
+    implementation 'com.oracle.database.jdbc:ojdbc8:21.9.0.0'
+    // Lombok
+    compileOnly 'org.projectlombok:lombok:1.18.26'
+    annotationProcessor 'org.projectlombok:lombok:1.18.26'
+    // MariaDB
+    implementation 'org.mariadb.jdbc:mariadb-java-client'
+    implementation 'org.mariadb.jdbc:mariadb-java-client:3.0.6'
+    // ScriptRunner
+    implementation 'org.mybatis:mybatis:3.5.13'
+}
+
+task customFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'org.TalCoWarPro.TalCoWarPro'
+    }
+    baseName = 'all-in-one-jar'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
+
+test {
+    useJUnitPlatform()
+}
