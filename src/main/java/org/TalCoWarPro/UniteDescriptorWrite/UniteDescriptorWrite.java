@@ -1,7 +1,11 @@
 package org.TalCoWarPro.UniteDescriptorWrite;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.Reader;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -25,6 +29,18 @@ public class UniteDescriptorWrite {
     }
 
     public void insertUniteDescriptor (ArrayList<UniteDescriptor> uniteDescriptorList) {
+        // Clear the db
+
+        try {
+            ScriptRunner sr = new ScriptRunner(connect());
+            Reader reader = new BufferedReader(new FileReader("src\\main\\java\\org\\TalCoWarPro\\schema.sql"));
+            sr.runScript(reader);
+            System.out.println("\nRE-CREATED WARPRO DATABASE");
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+
         // SQL statements
         String insertUnitQuery = "INSERT INTO uniteDescriptor (descriptor, nationalite, motherCountry, acknowUnitType, " +
                 "typeUnitFormation, useFollowCam, stickToGround, inGeoDb, porteurMustBeVisible, clampInWorld, " +
@@ -88,7 +104,7 @@ public class UniteDescriptorWrite {
         try (
                 Connection conn = connect();
         ){
-                try (PreparedStatement ps = conn.prepareStatement(insertUnitQuery)){
+            try (PreparedStatement ps = conn.prepareStatement(insertUnitQuery)){
                 for (UniteDescriptor uniteDescriptor : uniteDescriptorList) {
                     ps.setString(1, uniteDescriptor.getDescriptor());
                     ps.setString(2, uniteDescriptor.getNationalite());

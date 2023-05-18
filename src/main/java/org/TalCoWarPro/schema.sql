@@ -122,7 +122,6 @@ CREATE TABLE `uniteDescriptor` (
                        maxDistanceForOffensiveReaction VARCHAR(255),
                        maxDistanceForOffensiveReactionOnFlyingTarget VARCHAR(255),
                        maxDistanceForEngagement VARCHAR(255),
-                       searchedTagsInEngagementTarget VARCHAR(255),
                        minimapDisplayTexture VARCHAR(255),
                        minimapDisplayGhostTexture VARCHAR(255),
                        minimapDisplayIsAlwaysVisible TINYINT(1),

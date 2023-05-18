@@ -1,8 +1,10 @@
 package org.TalCoWarPro.UniteDescriptorDecode;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
+import org.apache.ibatis.jdbc.ScriptRunner;
 
 import java.io.*;
+import java.sql.DriverManager;
 import java.util.ArrayList;
 
 
@@ -21,6 +23,7 @@ public class UniteDescriptorDecode {
         }catch (Exception e) {
             System.out.println("Sorry, the application cannot find UniteDescriptor.ndf Please ensure it is in the same director as this jar file");
         }
+
         // While loop to read through entire file
 
 
@@ -413,7 +416,7 @@ public class UniteDescriptorDecode {
 
                     // TerrainList
                     while (!(line.startsWith(")"))) {
-                        if (line.contains("TerrainList")) {
+                        if (line.contains("TerrainList                =")) {
                             terrainList = line.substring(49);
                             break;
                         }
@@ -1219,7 +1222,7 @@ public class UniteDescriptorDecode {
                 // Default = TProductionModuleDescriptor
                 String factory = stringDecode("Factory", 41, null);
                 String productionTime = stringDecode("ProductionTime", 41, null);
-                String commandPoints = stringDecode("Resource_CommandPoints", 25, 2);
+                String commandPoints = stringDecode("Resource_CommandPoints", 51, 2);
                 String resourceTickets = null;
                 if((line = reader.readLine()).contains("Resource_Tickets")) {
                     resourceTickets = stringDecode("Resource_Tickets", 45, 2);
@@ -1348,6 +1351,7 @@ public class UniteDescriptorDecode {
             }
 
         }
+        reader.close();
         return uniteDescriptorList;
 
     }
