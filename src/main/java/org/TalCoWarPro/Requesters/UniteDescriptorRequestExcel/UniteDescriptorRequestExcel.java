@@ -1,4 +1,4 @@
-package org.TalCoWarPro.UniteDescriptorRequestExcel;
+package org.TalCoWarPro.Requesters.UniteDescriptorRequestExcel;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
 import org.apache.poi.ss.usermodel.DataFormatter;
@@ -212,9 +212,6 @@ public class UniteDescriptorRequestExcel {
             try {
                 referenceId = Integer.parseInt(formatter.formatCellValue(row.getCell(0)));
                 descriptor = formatter.formatCellValue(row.getCell(1));
-                if (descriptor.contains("ATAS")) {
-                    System.out.println("test");
-                }
                 nationalite = formatter.formatCellValue(row.getCell(2));
                 motherCountry = formatter.formatCellValue(row.getCell(3));
                 acknowUnitType = formatter.formatCellValue(row.getCell(4));

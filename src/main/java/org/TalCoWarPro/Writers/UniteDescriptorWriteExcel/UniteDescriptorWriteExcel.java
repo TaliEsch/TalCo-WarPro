@@ -1,4 +1,4 @@
-package org.TalCoWarPro.UniteDescriptorWriteExcel;
+package org.TalCoWarPro.Writers.UniteDescriptorWriteExcel;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
 import org.apache.ibatis.jdbc.ScriptRunner;
@@ -18,8 +18,9 @@ public class UniteDescriptorWriteExcel {
     String excelFilePath = "Output\\UniteDescriptorExcel.xlsx";
     ArrayList<UniteDescriptor> uniteDescriptorList;
 
-    public void insertUniteDescriptor (ArrayList<UniteDescriptor> uniteDescriptorList) {
+    public void insertUniteDescriptor (ArrayList<UniteDescriptor> uniteDescriptorList, String excelFilePath) {
         this.uniteDescriptorList = uniteDescriptorList;
+        this.excelFilePath = excelFilePath;
 
         //Excel
 

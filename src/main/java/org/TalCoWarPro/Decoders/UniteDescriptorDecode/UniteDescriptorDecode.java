@@ -1,10 +1,7 @@
-package org.TalCoWarPro.UniteDescriptorDecode;
+package org.TalCoWarPro.Decoders.UniteDescriptorDecode;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
-import org.apache.ibatis.jdbc.ScriptRunner;
-
 import java.io.*;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 
 
@@ -21,6 +18,7 @@ public class UniteDescriptorDecode {
         try {
             reader = new BufferedReader(new InputStreamReader(new FileInputStream("UniteDescriptor.ndf")));
         }catch (Exception e) {
+            System.out.println(e.getMessage());
             System.out.println("Sorry, the application cannot find UniteDescriptor.ndf Please ensure it is in the same director as this jar file");
         }
 

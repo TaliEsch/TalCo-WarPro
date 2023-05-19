@@ -173,6 +173,7 @@ public class UniteDescriptor {
     private String buttonTexture;
     private String countryTexture;
     private String typeStrategicCount;
+    private Boolean isEdited;
 
     public UniteDescriptor(String descriptor, String nationalite, String motherCountry, String acknowUnitType,
                            String typeUnitFormation, ArrayList<String> initialFlagSet, Boolean useFollowCam,

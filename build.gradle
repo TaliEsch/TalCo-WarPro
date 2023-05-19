@@ -4,7 +4,7 @@ plugins {
 }
 
 group 'org.talcowarpro.talcowarpro'
-version '0.1-SNAPSHOT'
+version '0.29-SNAPSHOT'
 sourceCompatibility = '17'
 mainClassName = 'java.org.TalCoWarPro.TalCoWarPro'
 
@@ -46,6 +46,8 @@ dependencies {
     implementation 'org.apache.poi:poi:5.2.2'
     implementation 'org.apache.poi:poi-ooxml:5.2.3'
     // Apache logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.20.0'
+    implementation 'org.apache.logging.log4j:log4j-core:2.20.0'
 }
 
 task customFatJar(type: Jar) {

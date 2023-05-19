@@ -1,4 +1,4 @@
-package org.TalCoWarPro.UniteDescriptorWrite;
+package org.TalCoWarPro.Writers.UniteDescriptorWrite;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
 import org.apache.ibatis.jdbc.ScriptRunner;

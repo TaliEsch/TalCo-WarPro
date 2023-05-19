@@ -1,4 +1,4 @@
-package org.TalCoWarPro.UploadUniteDescriptor;
+package org.TalCoWarPro.Writers.UploadUniteDescriptor;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
 

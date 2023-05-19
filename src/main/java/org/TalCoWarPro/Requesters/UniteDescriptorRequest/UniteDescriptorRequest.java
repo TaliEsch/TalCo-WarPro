@@ -1,4 +1,4 @@
-package org.TalCoWarPro.UniteDescriptorRequest;
+package org.TalCoWarPro.Requesters.UniteDescriptorRequest;
 
 import org.TalCoWarPro.Objects.UniteDescriptor.UniteDescriptor;
 
